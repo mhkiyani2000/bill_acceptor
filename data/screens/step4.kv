@@ -1,0 +1,19 @@
+BillAcceptorScreen:
+    name: 'step4'
+
+    GridLayout:
+        rows: 2
+        spacing: '50dp'
+        size_hint: .5, None
+        height: self.minimum_height
+
+        Label:
+            text: 'Thanks for your purchase. We will release by SMS receipt'
+            font_size: 30
+
+
+        Button:
+            size_hint_y: None
+            height: '48dp'
+            text: 'OK'
+            on_release: app.go_next_screen()

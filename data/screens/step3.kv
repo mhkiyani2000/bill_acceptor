@@ -1,0 +1,22 @@
+BillAcceptorScreen:
+    name: 'step3'
+
+    GridLayout:
+        rows: 3
+        spacing: '50dp'
+        size_hint: .5, None
+        height: self.minimum_height
+
+        Label:
+            text: 'Please insert $1 $5 $10 $20 $50 bills'
+            font_size: 40
+
+        Label:
+            font_size: 40
+            text: '${} inserted'.format(app.strbillamount)
+
+        Button:
+            size_hint_y: None
+            height: '48dp'
+            text: 'FINISH'
+            on_release: app.go_next_screen()

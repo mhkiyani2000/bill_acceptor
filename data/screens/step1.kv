@@ -1,0 +1,18 @@
+BillAcceptorScreen:
+    name: 'step1'
+
+    GridLayout:
+        rows: 2
+        spacing: '50dp'
+        size_hint: .5, None
+        height: self.minimum_height
+
+        Label:
+            text: 'Welcome to our vending machine'
+            font_size: 40
+
+        Button:
+            size_hint_y: None
+            height: '48dp'
+            text: 'START NOW'
+            on_release: app.go_next_screen()
