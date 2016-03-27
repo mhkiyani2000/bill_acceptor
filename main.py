@@ -17,7 +17,6 @@ POLL_RATE = 0.15
 global master_proc
 global aapp
 
-
 class Host(object):
     """
     An RS-232 master interface. A master operates with a RS-232
@@ -142,6 +141,7 @@ class Host(object):
             if out == '':
                 continue
 
+
             # With the exception of Stacked and Returned, only we can
             # only be in one state at once
             try:
@@ -249,6 +249,7 @@ class BillAcceptorApp(App):
         curdir = dirname(__file__)
         self.available_screens = [join(curdir, 'data', 'screens',
             '{}.kv'.format(fn)) for fn in self.available_screens]
+
         self.go_next_screen()
 
     def on_pause(self):
@@ -278,7 +279,7 @@ class BillAcceptorApp(App):
         self.current_title = screen.name
 
         if self.index == 2:
-            apex_rs232_proc_start('COM3')
+            apex_rs232_proc_start(port_num)
 
         if self.index == 3:
             apex_rs232_proc_stop()
@@ -317,7 +318,13 @@ class BillAcceptorApp(App):
         self.time = time()
 
 if __name__ == '__main__':
+
     global aapp
+    global port_num
+
+    port_num = sys.argv[1]
+    print port_num
+
     aapp = BillAcceptorApp()
     aapp.run()
 
