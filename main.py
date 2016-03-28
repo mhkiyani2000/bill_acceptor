@@ -9,7 +9,8 @@ from kivy.uix.screenmanager import Screen
 import sys
 from threading import Thread
 import serial, time, binascii
-
+import picamera
+import datetime
 
 ### Globals ###
 #Change this value to modify polling rate. Currently 100 ms
@@ -271,6 +272,7 @@ class BillAcceptorApp(App):
         self.billamount = tmp
 
     def go_next_screen(self):
+
         self.index = (self.index + 1) % len(self.available_screens)
         screen = self.load_screen(self.index)
 
@@ -279,6 +281,12 @@ class BillAcceptorApp(App):
         self.current_title = screen.name
 
         if self.index == 2:
+            # take photo
+            camera = picamera.PiCamera()
+            now = time.localtime()
+            timestamp = "%04d-%02d-%02d__%02d_%02d_%02d" % (now.tm_year, now.tm_mon, now.tm_mday, now.tm_hour, now.tm_min, now.tm_sec)
+            camera.capture(timestamp + '.jpg')
+            time.sleep(1)
             apex_rs232_proc_start(port_num)
 
         if self.index == 3:
