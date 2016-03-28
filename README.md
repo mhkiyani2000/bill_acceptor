@@ -1,20 +1,17 @@
-# Soft Bill
+# Bill Acceptor
 
 ## A virtual RS-232 Bill Acceptor
 Emulate an RS-232 bill acceptor in software.
-
-
-This application can be used to test your RS-232 master such as found [here](https://github.com/PyramidTechnologies/Python-RS-232)
 
 ### Requirements
 
  - Python 2.7
  - Null modem emulation
- - General knowledge of RS-232 protocol for bill validators
-   See [here] (http://developers.pyramidacceptors.com/coding/2014/08/26/RS-232-Diagram.html)for a good visual summary
+
 
 ### Getting Started
 
+- 	Make sure that Kivy and TFT Touchscreen Driver has installed successfully on your Raspberry Pi
 
 -	Install socat package
 	apt-get install socat
@@ -30,12 +27,12 @@ This application can be used to test your RS-232 master such as found [here](htt
 	python main.py /dev/pts/3
 	
 - key map:
-	1 : 1$
-	2 : 2$
-	3 : 5$
-	4 : 10$
-	5 : 20$
-	6 : 50$
-	7 : 100$
+	1 : 1$	
+	2 : 2$	
+	3 : 5$	
+	4 : 10$	
+	5 : 20$	
+	6 : 50$	
+	7 : 100$	
                     
 
